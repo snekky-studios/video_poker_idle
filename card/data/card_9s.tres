@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CardData" load_steps=2 format=3 uid="uid://d2dkbdgoxa0p0"]
+
+[ext_resource type="Script" uid="uid://dgxowxwm00i3l" path="res://card/card_data.gd" id="1_2a0qc"]
+
+[resource]
+script = ExtResource("1_2a0qc")
+rank = 8
+suit = 0

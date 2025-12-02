@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="PayTableEntry" load_steps=2 format=3 uid="uid://dtoqgy1xyd3po"]
+
+[ext_resource type="Script" uid="uid://dxrqld1n3s10s" path="res://pay_table/pay_table_entry.gd" id="1_1744x"]
+
+[resource]
+script = ExtResource("1_1744x")
+hand_rank = 4
+payout = 2

@@ -24,7 +24,7 @@ enum Rank {
 	FLUSH_FIVE
 }
 
-const RankName : Dictionary = {
+const RankName : Dictionary[Rank, String] = {
 	Rank.NONE : "NONE",
 	Rank.HIGH_CARD : "HIGH CARD",
 	Rank.PAIR : "PAIR",

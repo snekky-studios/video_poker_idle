@@ -44,8 +44,9 @@ func _set_state(value : State) -> void:
 	state = value
 	match(state):
 		State.WAITING_TO_DEAL:
-			data.deck.shuffle()
+			pass
 		State.DEALING:
+			data.deck.shuffle()
 			unhold_hand()
 			ui.pay_table.clear_highlights()
 			deal()
@@ -87,10 +88,8 @@ func draw() -> void:
 func resolve_hand() -> void:
 	var hand_data : Array[CardData] = []
 	for card : Card in hand:
-		print(card._to_string())
 		hand_data.append(card.data)
 	var hand_rank : Hand.Rank = Hand.rank(hand_data)
-	print(Hand.RankName[hand_rank])
 	var payout : int = data.pay_table_data.get_payout(hand_rank)
 	money += payout
 	ui.set_payout_text(payout)

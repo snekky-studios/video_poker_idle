@@ -13,6 +13,13 @@ var labels_payouts : Array[Label] = []
 func _ready() -> void:
 	vbox_container_hands = %VBoxContainerHands
 	vbox_container_payouts = %VBoxContainerPayouts
+	
+	# delete dummy labels used for development/debugging
+	for child : Label in vbox_container_hands.get_children():
+		child.queue_free()
+	for child : Label in vbox_container_payouts.get_children():
+		child.queue_free()
+	
 	return
 
 func _set_data(value : PayTableData) -> void:
@@ -35,7 +42,8 @@ func update() -> void:
 func add_entry(pay_table_entry : PayTableEntry) -> void:
 	var label_hand : Label = Label.new()
 	var label_payout : Label = Label.new()
-	label_hand.text = Hand.RankName[pay_table_entry.hand_rank]
+	#label_hand.text = Hand.RankName[pay_table_entry.hand_rank]
+	label_hand.text = data.get_hand_rank_name(pay_table_entry.hand_rank)
 	label_payout.text = str(pay_table_entry.payout)
 	label_payout.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	labels_hands.append(label_hand)

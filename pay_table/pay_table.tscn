@@ -13,26 +13,149 @@ script = ExtResource("1_owl11")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 172.0
+offset_bottom = 94.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = -1
 
-[node name="VBoxContainerHands" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="PanelContainerHands" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(116, 0)
+layout_mode = 2
+
+[node name="VBoxContainerHands" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainerHands"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 1
 
-[node name="VBoxContainerPayouts" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="Label0" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "4 2S, 3S, 4S W/ ACE, 2, 3, 4"
+
+[node name="Label1" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 2"
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 3"
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 4"
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 5"
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 6"
+
+[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 7"
+
+[node name="Label7" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 8"
+
+[node name="Label8" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 9"
+
+[node name="Label9" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 10"
+
+[node name="Label10" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 11"
+
+[node name="Label11" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 12"
+
+[node name="Label12" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+layout_mode = 2
+text = "HAND 13"
+
+[node name="PanelContainerPayouts" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+
+[node name="VBoxContainerPayouts" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainerPayouts"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 theme_override_constants/separation = 1
 alignment = 2
+
+[node name="Label0" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "1000000000000"
+horizontal_alignment = 2
+
+[node name="Label1" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "100000000000"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "10000000000"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "1000000000"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "100000000"
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "10000000"
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "1000000"
+horizontal_alignment = 2
+
+[node name="Label7" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "100000"
+horizontal_alignment = 2
+
+[node name="Label8" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "10000"
+horizontal_alignment = 2
+
+[node name="Label9" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "1000"
+horizontal_alignment = 2
+
+[node name="Label10" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "100"
+horizontal_alignment = 2
+
+[node name="Label11" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "10"
+horizontal_alignment = 2
+
+[node name="Label12" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 2

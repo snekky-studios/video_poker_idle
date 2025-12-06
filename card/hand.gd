@@ -34,7 +34,6 @@ const RankName : Dictionary[Rank, String] = {
 	Rank.STRAIGHT : "STRAIGHT",
 	Rank.FLUSH : "FLUSH",
 	Rank.FULL_HOUSE : "FULL HOUSE",
-	Rank.FOUR_OF_A_KIND : "FOUR OF A KIND",
 	Rank.FOUR_OF_A_KIND_5_KING : "FOUR OF A KIND 5 KING",
 	Rank.FOUR_OF_A_KIND_2_3_4 : "FOUR OF A KIND 2 3 4",
 	Rank.FOUR_OF_A_KIND_ACE : "FOUR OF A KIND ACE",

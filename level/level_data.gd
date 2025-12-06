@@ -3,8 +3,18 @@ extends Resource
 
 @export var deck : Deck = null
 @export var pay_table_data : PayTableData = null
-@export var starting_money : int = 0
-@export var deal_cost : int = 0
+@export var starting_currency : Dictionary[int, int] = {
+	0 : 100,
+	1 : 0,
+	2 : 0,
+	3 : 0
+}
+@export var deal_cost : Dictionary[int, int] = {
+	0 : 1,
+	1 : 0,
+	2 : 0,
+	3 : 0
+}
 @export var num_draws : int = 1
 
 func _to_string() -> String:

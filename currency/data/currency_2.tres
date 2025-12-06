@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Currency" load_steps=3 format=3 uid="uid://clqvd1j36m2qx"]
+
+[ext_resource type="Script" uid="uid://cuoeeeifj5jrj" path="res://currency/currency.gd" id="1_4yxna"]
+[ext_resource type="Texture2D" uid="uid://cfmqifqjlh7b1" path="res://currency/assets/currency_2.png" id="2_4yxna"]
+
+[resource]
+script = ExtResource("1_4yxna")
+name = "Rupee"
+tier = 2
+texture = ExtResource("2_4yxna")
+metadata/_custom_type_script = "uid://cuoeeeifj5jrj"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Currency" load_steps=3 format=3 uid="uid://cypw71pihdyxb"]
+
+[ext_resource type="Script" uid="uid://cuoeeeifj5jrj" path="res://currency/currency.gd" id="1_5hw4s"]
+[ext_resource type="Texture2D" uid="uid://rc4s4iqse1df" path="res://currency/assets/currency_0.png" id="2_6h64n"]
+
+[resource]
+script = ExtResource("1_5hw4s")
+name = "Gild"
+tier = 0
+texture = ExtResource("2_6h64n")
+metadata/_custom_type_script = "uid://cuoeeeifj5jrj"

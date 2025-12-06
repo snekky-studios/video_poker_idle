@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cfmqifqjlh7b1"
-path="res://.godot/imported/currency_3.png-58d16b4f2d3741214faa930462c97f5d.ctex"
+uid="uid://7dsncrej6dr7"
+path="res://.godot/imported/currency_3.png-2ccc075aa03f21ec16575b11e2b84ed9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://level/assets/currency_3.png"
-dest_files=["res://.godot/imported/currency_3.png-58d16b4f2d3741214faa930462c97f5d.ctex"]
+source_file="res://currency/assets/currency_3.png"
+dest_files=["res://.godot/imported/currency_3.png-2ccc075aa03f21ec16575b11e2b84ed9.ctex"]
 
 [params]
 

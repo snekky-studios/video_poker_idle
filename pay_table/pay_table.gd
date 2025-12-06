@@ -42,9 +42,8 @@ func update() -> void:
 func add_entry(pay_table_entry : PayTableEntry) -> void:
 	var label_hand : Label = Label.new()
 	var label_payout : Label = Label.new()
-	#label_hand.text = Hand.RankName[pay_table_entry.hand_rank]
 	label_hand.text = data.get_hand_rank_name(pay_table_entry.hand_rank)
-	label_payout.text = str(pay_table_entry.payout)
+	label_payout.text = str(pay_table_entry.base_payouts[0])
 	label_payout.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	labels_hands.append(label_hand)
 	labels_payouts.append(label_payout)

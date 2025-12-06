@@ -1,21 +1,41 @@
-[gd_resource type="Resource" script_class="PayTableData" load_steps=16 format=3 uid="uid://bk4g8dsd6o3cm"]
+[gd_resource type="Resource" script_class="PayTableData" load_steps=15 format=3 uid="uid://i8ikggsby5wj"]
 
 [ext_resource type="Script" uid="uid://dxrqld1n3s10s" path="res://pay_table/pay_table_entry.gd" id="1_epxt6"]
-[ext_resource type="Resource" uid="uid://4s12hscc1jn3" path="res://pay_table/data/entries/pay_table_entry_jacks_or_better_1.tres" id="2_brmcs"]
-[ext_resource type="Resource" uid="uid://bsv4ns2bjdovg" path="res://pay_table/data/entries/pay_table_entry_two_pair_1.tres" id="3_4v8d0"]
-[ext_resource type="Resource" uid="uid://2d1ufqb8onp0" path="res://pay_table/data/entries/pay_table_entry_three_of_a_kind_3.tres" id="4_0epih"]
-[ext_resource type="Resource" uid="uid://cd2dn87eu4yiu" path="res://pay_table/data/entries/pay_table_entry_straight_4.tres" id="5_5mn4t"]
-[ext_resource type="Resource" uid="uid://tcdnc584vbqk" path="res://pay_table/data/entries/pay_table_entry_flush_6.tres" id="6_063to"]
-[ext_resource type="Resource" uid="uid://ts2rjij4d3hn" path="res://pay_table/data/entries/pay_table_entry_full_house_9.tres" id="7_vnbbr"]
-[ext_resource type="Resource" uid="uid://sj335g24r5sc" path="res://pay_table/data/entries/pay_table_entry_four_of_a_kind_5_king_50.tres" id="8_1k6sh"]
-[ext_resource type="Resource" uid="uid://w734kegs8fsu" path="res://pay_table/data/entries/pay_table_entry_four_of_a_kind_2_3_4_80.tres" id="9_3cgwb"]
-[ext_resource type="Resource" uid="uid://msorvmr3knd7" path="res://pay_table/data/entries/pay_table_entry_four_of_a_kind_2_3_4_kicker_160.tres" id="10_33moy"]
-[ext_resource type="Resource" uid="uid://c41a3u1sefxdf" path="res://pay_table/data/entries/pay_table_entry_four_of_a_kind_ace_160.tres" id="11_it5eu"]
-[ext_resource type="Resource" uid="uid://bw0qpi4g41b35" path="res://pay_table/data/entries/pay_table_entry_four_of_a_kind_ace_kicker_400.tres" id="12_oje71"]
-[ext_resource type="Resource" uid="uid://dv5mc2colknkt" path="res://pay_table/data/entries/pay_table_entry_straight_flush_50.tres" id="13_6e30x"]
-[ext_resource type="Resource" uid="uid://caoydywkxj10v" path="res://pay_table/data/entries/pay_table_entry_royal_flush_800.tres" id="14_72y5q"]
+[ext_resource type="Resource" uid="uid://xalci8esxh6h" path="res://pay_table/data/entries/pay_table_entry_jacks_or_better.tres" id="2_epxt6"]
+[ext_resource type="Resource" uid="uid://dgeug74krdeb8" path="res://pay_table/data/entries/pay_table_entry_two_pair.tres" id="3_brmcs"]
+[ext_resource type="Resource" uid="uid://dieejd1fng4d3" path="res://pay_table/data/entries/pay_table_entry_three_of_a_kind.tres" id="4_4v8d0"]
+[ext_resource type="Resource" uid="uid://blousmjba6kpk" path="res://pay_table/data/entries/pay_table_entry_straight.tres" id="5_0epih"]
+[ext_resource type="Resource" uid="uid://c0iltmdajl7tb" path="res://pay_table/data/entries/pay_table_entry_flush.tres" id="6_5mn4t"]
+[ext_resource type="Resource" uid="uid://bjkohlillf37b" path="res://pay_table/data/entries/pay_table_entry_full_house.tres" id="7_063to"]
+[ext_resource type="Resource" uid="uid://dnopiooodausr" path="res://pay_table/data/entries/pay_table_entry_four_of_a_kind_5_king.tres" id="8_vnbbr"]
+[ext_resource type="Resource" uid="uid://byxvasaqw711p" path="res://pay_table/data/entries/pay_table_entry_four_of_a_kind_2_3_4.tres" id="9_1k6sh"]
+[ext_resource type="Resource" uid="uid://qv2v4hihmvmh" path="res://pay_table/data/entries/pay_table_entry_four_of_a_kind_2_3_4_kicker.tres" id="10_3cgwb"]
+[ext_resource type="Resource" uid="uid://b3oisqq4nnj01" path="res://pay_table/data/entries/pay_table_entry_four_of_a_kind_ace.tres" id="11_33moy"]
+[ext_resource type="Resource" uid="uid://dqdrn0b6x5urm" path="res://pay_table/data/entries/pay_table_entry_four_of_a_kind_ace_kicker.tres" id="12_it5eu"]
+[ext_resource type="Resource" uid="uid://qm413yy2kbh" path="res://pay_table/data/entries/pay_table_entry_straight_flush.tres" id="13_oje71"]
 [ext_resource type="Script" uid="uid://bttgucacf61no" path="res://pay_table/pay_table_data.gd" id="15_iwqax"]
 
 [resource]
 script = ExtResource("15_iwqax")
-entries = Array[ExtResource("1_epxt6")]([ExtResource("2_brmcs"), ExtResource("3_4v8d0"), ExtResource("4_0epih"), ExtResource("5_5mn4t"), ExtResource("6_063to"), ExtResource("7_vnbbr"), ExtResource("8_1k6sh"), ExtResource("9_3cgwb"), ExtResource("10_33moy"), ExtResource("11_it5eu"), ExtResource("12_oje71"), ExtResource("13_6e30x"), ExtResource("14_72y5q")])
+entries = Array[ExtResource("1_epxt6")]([ExtResource("2_epxt6"), ExtResource("3_brmcs"), ExtResource("4_4v8d0"), ExtResource("5_0epih"), ExtResource("6_5mn4t"), ExtResource("7_063to"), ExtResource("8_vnbbr"), ExtResource("9_1k6sh"), ExtResource("10_3cgwb"), ExtResource("11_33moy"), ExtResource("12_it5eu"), ExtResource("13_oje71")])
+has_hand_rank = Dictionary[int, bool]({
+0: false,
+1: false,
+2: false,
+3: true,
+4: true,
+5: true,
+6: true,
+7: true,
+8: true,
+10: true,
+11: true,
+12: true,
+13: true,
+14: true,
+15: true,
+16: true,
+17: false,
+18: false,
+19: false
+})

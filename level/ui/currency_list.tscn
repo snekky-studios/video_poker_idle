@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c58184soyubtg"]
+[gd_scene load_steps=6 format=3 uid="uid://c58184soyubtg"]
 
-[ext_resource type="Texture2D" uid="uid://rc4s4iqse1df" path="res://level/assets/currency_1.png" id="1_s7prm"]
-[ext_resource type="Texture2D" uid="uid://dt0l7jklpoqpl" path="res://level/assets/currency_2.png" id="2_wolu4"]
-[ext_resource type="Texture2D" uid="uid://cfmqifqjlh7b1" path="res://level/assets/currency_3.png" id="3_ieq27"]
-[ext_resource type="Texture2D" uid="uid://7dsncrej6dr7" path="res://level/assets/currency_4.png" id="4_nlc7c"]
+[ext_resource type="Script" uid="uid://b5wyp7bmol7li" path="res://level/ui/currency_list.gd" id="1_ieq27"]
+[ext_resource type="Texture2D" uid="uid://rc4s4iqse1df" path="res://currency/assets/currency_0.png" id="1_s7prm"]
+[ext_resource type="Texture2D" uid="uid://dt0l7jklpoqpl" path="res://currency/assets/currency_1.png" id="2_wolu4"]
+[ext_resource type="Texture2D" uid="uid://cfmqifqjlh7b1" path="res://currency/assets/currency_2.png" id="3_ieq27"]
+[ext_resource type="Texture2D" uid="uid://7dsncrej6dr7" path="res://currency/assets/currency_3.png" id="4_nlc7c"]
 
 [node name="CurrencyList" type="Control"]
 layout_mode = 3
@@ -12,6 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ieq27")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -26,66 +29,74 @@ theme_override_constants/margin_top = 2
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainerCurrencies" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
 
-[node name="HBoxContainerCurrency1" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainerCurrency0" type="HBoxContainer" parent="MarginContainer/VBoxContainerCurrencies"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainerCurrency1"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainerCurrencies/HBoxContainerCurrency0"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("1_s7prm")
 stretch_mode = 3
 
-[node name="LabelCurrency1" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainerCurrency1"]
+[node name="LabelCurrency0" type="Label" parent="MarginContainer/VBoxContainerCurrencies/HBoxContainerCurrency0"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "1000000000"
 horizontal_alignment = 2
 
-[node name="HBoxContainerCurrency2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainerCurrency1" type="HBoxContainer" parent="MarginContainer/VBoxContainerCurrencies"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainerCurrency2"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainerCurrencies/HBoxContainerCurrency1"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("2_wolu4")
 stretch_mode = 3
 
-[node name="LabelCurrency2" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainerCurrency2"]
+[node name="LabelCurrency1" type="Label" parent="MarginContainer/VBoxContainerCurrencies/HBoxContainerCurrency1"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "1000000000"
 horizontal_alignment = 2
 
-[node name="HBoxContainerCurrency3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainerCurrency2" type="HBoxContainer" parent="MarginContainer/VBoxContainerCurrencies"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainerCurrency3"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainerCurrencies/HBoxContainerCurrency2"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("3_ieq27")
 stretch_mode = 3
 
-[node name="LabelCurrency3" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainerCurrency3"]
+[node name="LabelCurrency2" type="Label" parent="MarginContainer/VBoxContainerCurrencies/HBoxContainerCurrency2"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "1000000000"
 horizontal_alignment = 2
 
-[node name="HBoxContainerCurrency4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="HBoxContainerCurrency3" type="HBoxContainer" parent="MarginContainer/VBoxContainerCurrencies"]
+unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainerCurrency4"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainerCurrencies/HBoxContainerCurrency3"]
 layout_mode = 2
 size_flags_horizontal = 3
 texture = ExtResource("4_nlc7c")
 stretch_mode = 3
 
-[node name="LabelCurrency4" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainerCurrency4"]
+[node name="LabelCurrency3" type="Label" parent="MarginContainer/VBoxContainerCurrencies/HBoxContainerCurrency3"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
 text = "1000000000"

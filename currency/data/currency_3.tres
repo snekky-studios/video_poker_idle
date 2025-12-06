@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Currency" load_steps=3 format=3 uid="uid://5wceje7t7i03"]
+
+[ext_resource type="Script" uid="uid://cuoeeeifj5jrj" path="res://currency/currency.gd" id="1_xc78n"]
+[ext_resource type="Texture2D" uid="uid://7dsncrej6dr7" path="res://currency/assets/currency_3.png" id="2_xc78n"]
+
+[resource]
+script = ExtResource("1_xc78n")
+name = "Dragoon"
+tier = 3
+texture = ExtResource("2_xc78n")
+metadata/_custom_type_script = "uid://cuoeeeifj5jrj"

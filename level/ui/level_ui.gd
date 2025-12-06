@@ -2,7 +2,7 @@ class_name LevelUI
 extends Control
 
 signal deal_draw_pressed
-signal money_target_reached
+signal currency_target_reached
 
 enum State
 {
@@ -10,41 +10,48 @@ enum State
 	DRAW
 }
 
-const MONEY_INCREMENT_SPEED_SLOW : float = 0.3
-const MONEY_INCREMENT_SPEED_MEDIUM : float = 0.1
-const MONEY_INCREMENT_SPEED_FAST : float = 0.01
+const CURRENCY_INCREMENT_SPEED_SLOW : float = 0.3
+const CURRENCY_INCREMENT_SPEED_MEDIUM : float = 0.1
+const CURRENCY_INCREMENT_SPEED_FAST : float = 0.01
 
 var state : State = State.DEAL : set = _set_state
-var money_increment_speed : float = MONEY_INCREMENT_SPEED_SLOW # the speed at which the money counter label increments on a payout
-var money_current : int = 0 : set = _set_money_current
-var money_target : int = 0 : set = _set_money_target
-var money_increment_progress : float = 0.0
-var is_incrementing_money : bool = false
+var currency_increment_speed : Dictionary[int, float] = {} # the speed at which the currency counter label increments on a payout
+var currency_current : Dictionary[int, int] = {}
+var currency_target : Dictionary[int, int] = {} : set = _set_currency_target
+var currency_increment_progress : Dictionary[int, float] = {}
+var is_incrementing_currency : Dictionary[int, bool] = {}
+var are_all_currencies_incremented : bool = true
 
 var pay_table : PayTable = null
-var label_payout : Label = null
-var label_money : Label = null
+var currency_list : CurrencyList = null
 var button_deal_draw : Button = null
 
 func _ready() -> void:
 	pay_table = %PayTable
-	label_payout = %LabelPayout
-	label_money = %LabelMoney
+	currency_list = %CurrencyList
 	button_deal_draw = %ButtonDealDraw
 	return
 
 func _process(delta: float) -> void:
-	if(not is_incrementing_money):
+	if(are_all_currencies_incremented):
 		return
-	money_increment_progress += delta
-	if(money_increment_progress > money_increment_speed):
-		while(money_increment_progress > money_increment_speed):
-			money_increment_progress -= money_increment_speed
-			money_current += 1
-		money_increment_progress = 0.0
-		if(money_current >= money_target):
-			is_incrementing_money = false
-			money_target_reached.emit()
+	are_all_currencies_incremented = true
+	for currency_tier : int in is_incrementing_currency.keys():
+		if(not is_incrementing_currency[currency_tier]):
+			continue
+		currency_increment_progress[currency_tier] += delta
+		if(currency_increment_progress[currency_tier] > currency_increment_speed[currency_tier]):
+			while(currency_increment_progress[currency_tier] > currency_increment_speed[currency_tier]):
+				currency_increment_progress[currency_tier] -= currency_increment_speed[currency_tier]
+				currency_current[currency_tier] += 1
+				currency_list.update_currency(currency_tier, currency_current[currency_tier])
+			currency_increment_progress[currency_tier] = 0.0
+			if(currency_current[currency_tier] >= currency_target[currency_tier]):
+				is_incrementing_currency[currency_tier] = false
+	for currency_tier : int in is_incrementing_currency.keys():
+		are_all_currencies_incremented = are_all_currencies_incremented and (not is_incrementing_currency[currency_tier])
+	if(are_all_currencies_incremented):
+		currency_target_reached.emit()
 	return
 
 func _set_state(value : State) -> void:
@@ -54,30 +61,40 @@ func _set_state(value : State) -> void:
 			button_deal_draw.text = "DEAL"
 		State.DRAW:
 			button_deal_draw.text = "DRAW"
-			label_payout.text = ""
 		_:
 			print("error: invalid level_ui state - ", state)
 	return
 
-func _set_money_current(value : int) -> void:
-	money_current = value
-	set_money_text(money_current)
+func _set_currency_target(value : Dictionary[int, int]) -> void:
+	currency_target = value
+	are_all_currencies_incremented = true
+	for currency_tier : int in currency_current.keys():
+		if(currency_current[currency_tier] < currency_target[currency_tier]):
+			is_incrementing_currency[currency_tier] = true
+			are_all_currencies_incremented = false
+			var currency_delta : int = currency_target[currency_tier] - currency_current[currency_tier]
+			if(currency_delta < 5):
+				currency_increment_speed[currency_tier] = CURRENCY_INCREMENT_SPEED_SLOW
+			elif(currency_delta < 26):
+				currency_increment_speed[currency_tier] = CURRENCY_INCREMENT_SPEED_MEDIUM
+			else:
+				currency_increment_speed[currency_tier] = CURRENCY_INCREMENT_SPEED_FAST
+		else:
+			currency_current[currency_tier] = currency_target[currency_tier]
+			currency_list.update_currency(currency_tier, currency_current[currency_tier])
+	print(currency_target)
+	print(is_incrementing_currency)
+	if(are_all_currencies_incremented):
+		currency_target_reached.emit()
 	return
 
-func _set_money_target(value : int) -> void:
-	money_target = value
-	if(money_current < money_target):
-		is_incrementing_money = true
-		var money_delta : int = money_target - money_current
-		if(money_delta < 5):
-			money_increment_speed = MONEY_INCREMENT_SPEED_SLOW
-		elif(money_delta < 26):
-			money_increment_speed = MONEY_INCREMENT_SPEED_MEDIUM
-		else:
-			money_increment_speed = MONEY_INCREMENT_SPEED_FAST
-	else:
-		money_current = money_target
-		money_target_reached.emit()
+func set_initial_currency(value : Dictionary[int, int]) -> void:
+	for currency_tier : int in value.keys():
+		currency_current[currency_tier] = value[currency_tier]
+		currency_target[currency_tier] = currency_current[currency_tier]
+		currency_increment_speed[currency_tier] = CURRENCY_INCREMENT_SPEED_SLOW
+		currency_increment_progress[currency_tier] = 0.0
+		is_incrementing_currency[currency_tier] = false
 	return
 
 func set_pay_table_data(value : PayTableData) -> void:
@@ -85,15 +102,8 @@ func set_pay_table_data(value : PayTableData) -> void:
 	pay_table.update()
 	return
 
-func set_money_text(value : int) -> void:
-	label_money.text = str(value) + " CREDITS"
-	return
-
-func set_payout_text(value : int) -> void:
-	if(value < 1):
-		label_payout.text = ""
-	else:
-		label_payout.text = "WIN " + str(value)
+func set_payout_text(payout : Dictionary[int, int]) -> void:
+	
 	return
 
 func _on_button_deal_draw_pressed() -> void:

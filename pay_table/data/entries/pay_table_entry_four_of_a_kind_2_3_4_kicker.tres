@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="PayTableEntry" load_steps=2 format=3 uid="uid://qv2v4hihmvmh"]
+
+[ext_resource type="Script" uid="uid://dxrqld1n3s10s" path="res://pay_table/pay_table_entry.gd" id="1_ck500"]
+
+[resource]
+script = ExtResource("1_ck500")
+hand_rank = 13
+index = 0
+level = 1
+base_payouts = Dictionary[int, int]({
+0: 160,
+1: 25,
+2: 4,
+3: 1
+})
+upgrade_base_costs = Dictionary[int, int]({
+0: 160,
+1: 9,
+2: 3,
+3: 0
+})

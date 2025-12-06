@@ -12,7 +12,7 @@ enum State
 
 var data : LevelData = null : set = _set_data
 var state : State = State.WAITING_TO_DEAL : set = _set_state
-var money : int = 0 : set = _set_money
+var currency : Dictionary[int, int] = {}
 var num_draws_remaining : int = 0
 
 var ui : LevelUI = null
@@ -25,7 +25,7 @@ func _ready() -> void:
 	held_labels = [%LabelHeld0, %LabelHeld1, %LabelHeld2, %LabelHeld3, %LabelHeld4]
 	
 	ui.deal_draw_pressed.connect(_on_ui_deal_draw_pressed)
-	ui.money_target_reached.connect(_on_ui_money_target_reached)
+	ui.currency_target_reached.connect(_on_ui_currency_target_reached)
 	for card : Card in hand:
 		card.selected.connect(_on_card_selected)
 	
@@ -34,17 +34,19 @@ func _ready() -> void:
 func _set_data(value : LevelData) -> void:
 	data = value
 	data.deck.shuffle()
-	ui.set_pay_table_data(data.pay_table_data)
-	ui.money_current = data.starting_money
-	money = data.starting_money
+	currency = data.starting_currency
 	num_draws_remaining = data.num_draws
+	ui.set_pay_table_data(data.pay_table_data)
+	ui.set_initial_currency(currency)
+	for currency_tier : int in currency.keys():
+		ui.currency_list.update_currency(currency_tier, currency[currency_tier])
 	return
 
 func _set_state(value : State) -> void:
 	state = value
 	match(state):
 		State.WAITING_TO_DEAL:
-			pass
+			ui.state = LevelUI.State.DEAL
 		State.DEALING:
 			data.deck.shuffle()
 			unhold_hand()
@@ -60,15 +62,12 @@ func _set_state(value : State) -> void:
 			print("error: invalid level state - ", state)
 	return
 
-func _set_money(value : int) -> void:
-	money = value
-	ui.money_target = money
-	return
-
 func deal() -> void:
 	for card : Card in hand:
 		card.data = data.deck.deal()
-	money -= data.deal_cost
+	for currency_tier : int in currency.keys():
+		currency[currency_tier] -= data.deal_cost[currency_tier]
+	ui.currency_target = currency
 	ui.state = LevelUI.State.DRAW
 	state = State.WAITING_TO_DRAW
 	return
@@ -90,11 +89,10 @@ func resolve_hand() -> void:
 	for card : Card in hand:
 		hand_data.append(card.data)
 	var hand_rank : Hand.Rank = Hand.rank(hand_data)
-	var payout : int = data.pay_table_data.get_payout(hand_rank)
-	money += payout
-	ui.set_payout_text(payout)
+	for currency_tier : int in currency.keys():
+		currency[currency_tier] += data.pay_table_data.get_payout(hand_rank, currency_tier)
 	ui.pay_table.highlight(hand_rank)
-	ui.state = LevelUI.State.DEAL
+	ui.currency_target = currency
 	return
 
 func unhold_hand() -> void:
@@ -115,7 +113,7 @@ func _on_ui_deal_draw_pressed() -> void:
 			print("error: invalid level state - ", state)
 	return
 
-func _on_ui_money_target_reached() -> void:
+func _on_ui_currency_target_reached() -> void:
 	state = State.WAITING_TO_DEAL
 	return
 

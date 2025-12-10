@@ -61,11 +61,32 @@ func sort() -> void:
 				entries[index_secondary] = temp
 	return
 
-func get_payout(hand_rank : Hand.Rank, currency_tier : int) -> int:
+func get_payout(hand_rank : Hand.Rank) -> Dictionary[int, int]:
+	var payout : Dictionary[int, int] = {}
 	for entry : PayTableEntry in entries:
 		if(entry.hand_rank == hand_rank):
-			return entry.base_payouts[currency_tier] * entry.level
-	return 0
+			for currency_tier : int in entry.base_upgrade_costs.keys():
+				payout[currency_tier] = entry.calculate_payout(currency_tier)
+			return payout
+	return {}
+
+func get_upgrade_cost(hand_rank : Hand.Rank) -> Dictionary[int, int]:
+	var upgrade_cost : Dictionary[int, int] = {}
+	for entry : PayTableEntry in entries:
+		if(entry.hand_rank == hand_rank):
+			for currency_tier : int in entry.base_upgrade_costs.keys():
+				upgrade_cost[currency_tier] = entry.calculate_upgrade_cost(currency_tier)
+			return upgrade_cost
+	print("error: hand_rank not present in pay table - ", hand_rank)
+	return {}
+
+func upgrade_hand(hand_rank : Hand.Rank) -> void:
+	for entry : PayTableEntry in entries:
+		if(entry.hand_rank == hand_rank):
+			entry.level += 1
+			return
+	print("error: hand_rank not present in pay table - ", hand_rank)
+	return
 
 func get_hand_rank_name(hand_rank : Hand.Rank) -> String:
 	return HAND_RANK_NAMES[hand_rank]

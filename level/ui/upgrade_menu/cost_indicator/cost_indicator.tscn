@@ -1,0 +1,102 @@
+[gd_scene load_steps=6 format=3 uid="uid://chm4h37bh3cnv"]
+
+[ext_resource type="Script" uid="uid://dp0s3s1aq5rur" path="res://level/ui/upgrade_menu/cost_indicator/cost_indicator.gd" id="1_nw1kr"]
+[ext_resource type="Texture2D" uid="uid://rc4s4iqse1df" path="res://currency/assets/currency_0.png" id="1_xdau3"]
+[ext_resource type="Texture2D" uid="uid://dt0l7jklpoqpl" path="res://currency/assets/currency_1.png" id="3_amce0"]
+[ext_resource type="Texture2D" uid="uid://cfmqifqjlh7b1" path="res://currency/assets/currency_2.png" id="4_x03vt"]
+[ext_resource type="Texture2D" uid="uid://7dsncrej6dr7" path="res://currency/assets/currency_3.png" id="5_rm7bl"]
+
+[node name="CostIndicator" type="Control"]
+modulate = Color(1, 1, 1, 0.752941)
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+script = ExtResource("1_nw1kr")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 48.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 2
+
+[node name="HBoxContainerCurrency0" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainerCurrency0"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("1_xdau3")
+stretch_mode = 5
+
+[node name="LabelCurrency0" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerCurrency0"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+
+[node name="HBoxContainerCurrency1" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainerCurrency1"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_amce0")
+stretch_mode = 5
+
+[node name="LabelCurrency1" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerCurrency1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+
+[node name="HBoxContainerCurrency2" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainerCurrency2"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_x03vt")
+stretch_mode = 5
+
+[node name="LabelCurrency2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerCurrency2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"
+
+[node name="HBoxContainerCurrency3" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+mouse_filter = 2
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainerCurrency3"]
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("5_rm7bl")
+stretch_mode = 5
+
+[node name="LabelCurrency3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainerCurrency3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+text = "0"

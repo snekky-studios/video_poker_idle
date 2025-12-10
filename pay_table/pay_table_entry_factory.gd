@@ -2,6 +2,8 @@
 class_name PayTableEntryFactory
 extends EditorScript
 
+const LEVEL : int = 0
+
 const dir_path : String = "res://pay_table/data/entries/"
 const file_prefix : String = "pay_table_entry_"
 const file_suffix : String = ".tres"
@@ -98,6 +100,8 @@ func _double_double_bonus() -> void:
 func _create_pay_table_entry(hand_rank : Hand.Rank, index : int, base_payouts : Array[int], upgrade_base_costs : Array[int]) -> PayTableEntry:
 	var pay_table_entry : PayTableEntry = PayTableEntry.new()
 	pay_table_entry.hand_rank = hand_rank
+	pay_table_entry.index = index
+	pay_table_entry.level = LEVEL
 	for index_payout : int in range(base_payouts.size()):
 		pay_table_entry.add_base_payout(index_payout, base_payouts[index_payout])
 	for index_upgrade_base_costs : int in range(upgrade_base_costs.size()):

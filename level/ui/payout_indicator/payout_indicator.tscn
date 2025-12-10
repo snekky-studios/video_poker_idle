@@ -1,0 +1,282 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8hkdjfnbm3a3"]
+
+[ext_resource type="Script" uid="uid://bjx7164v5apqs" path="res://level/ui/payout_indicator/payout_indicator.gd" id="1_0d2l2"]
+[ext_resource type="Texture2D" uid="uid://rc4s4iqse1df" path="res://currency/assets/currency_0.png" id="2_krq3i"]
+[ext_resource type="Texture2D" uid="uid://dt0l7jklpoqpl" path="res://currency/assets/currency_1.png" id="3_6iwe3"]
+[ext_resource type="Texture2D" uid="uid://cfmqifqjlh7b1" path="res://currency/assets/currency_2.png" id="4_lkfa2"]
+[ext_resource type="Texture2D" uid="uid://7dsncrej6dr7" path="res://currency/assets/currency_3.png" id="5_iqwg3"]
+
+[sub_resource type="Animation" id="Animation_lkfa2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainerCurrencies:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency0:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_iqwg3"]
+resource_name = "currency_0"
+
+[sub_resource type="Animation" id="Animation_6iwe3"]
+resource_name = "play"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxContainerCurrencies:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -80)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency0:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency1:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.333333, 1.33333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.666667, 1.66667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency3:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = false
+tracks/5/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency0:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency1:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency2:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.666667, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("VBoxContainerCurrencies/HBoxContainerCurrency3:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iqwg3"]
+_data = {
+&"RESET": SubResource("Animation_lkfa2"),
+&"currency_0": SubResource("Animation_iqwg3"),
+&"play": SubResource("Animation_6iwe3")
+}
+
+[node name="PayoutIndicator" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_0d2l2")
+
+[node name="VBoxContainerCurrencies" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
+
+[node name="HBoxContainerCurrency0" type="HBoxContainer" parent="VBoxContainerCurrencies"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainerCurrencies/HBoxContainerCurrency0"]
+layout_mode = 2
+texture = ExtResource("2_krq3i")
+stretch_mode = 3
+
+[node name="LabelCurrency0" type="Label" parent="VBoxContainerCurrencies/HBoxContainerCurrency0"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100000000"
+
+[node name="HBoxContainerCurrency1" type="HBoxContainer" parent="VBoxContainerCurrencies"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainerCurrencies/HBoxContainerCurrency1"]
+layout_mode = 2
+texture = ExtResource("3_6iwe3")
+stretch_mode = 3
+
+[node name="LabelCurrency1" type="Label" parent="VBoxContainerCurrencies/HBoxContainerCurrency1"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100000000"
+
+[node name="HBoxContainerCurrency2" type="HBoxContainer" parent="VBoxContainerCurrencies"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainerCurrencies/HBoxContainerCurrency2"]
+layout_mode = 2
+texture = ExtResource("4_lkfa2")
+stretch_mode = 3
+
+[node name="LabelCurrency2" type="Label" parent="VBoxContainerCurrencies/HBoxContainerCurrency2"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100000000"
+
+[node name="HBoxContainerCurrency3" type="HBoxContainer" parent="VBoxContainerCurrencies"]
+unique_name_in_owner = true
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainerCurrencies/HBoxContainerCurrency3"]
+layout_mode = 2
+texture = ExtResource("5_iqwg3")
+stretch_mode = 3
+
+[node name="LabelCurrency3" type="Label" parent="VBoxContainerCurrencies/HBoxContainerCurrency3"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "100000000"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_iqwg3")
+}

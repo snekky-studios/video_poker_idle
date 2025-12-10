@@ -25,16 +25,19 @@ func add_currency(currency : Currency) -> void:
 	var label_currency : Label = Label.new()
 	hbox_container_currency.add_child(texture_rect_currency)
 	hbox_container_currency.add_child(label_currency)
+	hbox_container_currency.custom_minimum_size = Vector2(96.0, 0.0)
 	texture_rect_currency.texture = currency.texture
-	texture_rect_currency.stretch_mode = TextureRect.STRETCH_KEEP_CENTERED
+	texture_rect_currency.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT
 	texture_rect_currency.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	texture_rect_currency.custom_minimum_size = Vector2(20.0, 20.0)
 	label_currency.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	label_currency.text = str(0)
 	label_currency.custom_minimum_size = Vector2(40.0, 0.0)
+	label_currency.add_theme_font_size_override("font_size", 32)
 	vbox_container_currencies.add_child(hbox_container_currency)
 	label_currencies[currency.tier] = label_currency
 	return
 
 func update_currency(currency_tier : int, value : int) -> void:
-	label_currencies[currency_tier].text = str(value)
+	label_currencies[currency_tier].text = Utility.engineering_notation(value)
 	return

@@ -2,19 +2,25 @@
 
 [ext_resource type="Resource" uid="uid://dlmrwldb1hojb" path="res://deck/data/deck_standard.tres" id="1_bd1ih"]
 [ext_resource type="Script" uid="uid://bko300ag534rt" path="res://level/level_data.gd" id="1_otvrr"]
-[ext_resource type="Resource" uid="uid://i8ikggsby5wj" path="res://pay_table/data/pay_table_double_double_bonus.tres" id="2_gesgv"]
+[ext_resource type="Resource" uid="uid://lrbn3dkie2r7" path="res://pay_table/data/pay_table_double_double_bonus.tres" id="2_gesgv"]
 
 [resource]
 script = ExtResource("1_otvrr")
 deck = ExtResource("1_bd1ih")
 pay_table_data = ExtResource("2_gesgv")
 starting_currency = Dictionary[int, int]({
-0: 100,
+0: 999999,
+1: 999999,
+2: 999999,
+3: 999999
+})
+deal_cost = Dictionary[int, int]({
+0: 1,
 1: 0,
 2: 0,
 3: 0
 })
-deal_cost = Dictionary[int, int]({
+passive_income = Dictionary[int, int]({
 0: 1,
 1: 0,
 2: 0,

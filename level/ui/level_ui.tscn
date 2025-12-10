@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn2sqocpkdasq"]
+[gd_scene load_steps=6 format=3 uid="uid://bn2sqocpkdasq"]
 
 [ext_resource type="Script" uid="uid://27uppdithiow" path="res://level/ui/level_ui.gd" id="1_jdrio"]
 [ext_resource type="PackedScene" uid="uid://cut4p2vuxvwhs" path="res://pay_table/pay_table.tscn" id="2_b6tlu"]
-[ext_resource type="PackedScene" uid="uid://c58184soyubtg" path="res://level/ui/currency_list.tscn" id="3_t5fwx"]
+[ext_resource type="PackedScene" uid="uid://c58184soyubtg" path="res://level/ui/currency_list/currency_list.tscn" id="3_t5fwx"]
+[ext_resource type="PackedScene" uid="uid://c8hkdjfnbm3a3" path="res://level/ui/payout_indicator/payout_indicator.tscn" id="4_hqq8i"]
+[ext_resource type="PackedScene" uid="uid://cvfowrv5jjhy6" path="res://level/ui/button_passive_currency/button_passive_currency.tscn" id="5_og45k"]
 
 [node name="LevelUI" type="Control"]
 layout_mode = 3
@@ -23,6 +25,22 @@ mouse_filter = 2
 unique_name_in_owner = true
 layout_mode = 1
 
+[node name="PayoutIndicator" parent="." instance=ExtResource("4_hqq8i")]
+unique_name_in_owner = true
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 320.0
+offset_top = 220.0
+offset_right = 320.0
+offset_bottom = 220.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(2, 2)
+
 [node name="MarginContainerButtons" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 12
@@ -36,27 +54,27 @@ grow_vertical = 0
 [node name="HBoxContainerButtons" type="HBoxContainer" parent="MarginContainerButtons"]
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="MarginContainerButtons/HBoxContainerButtons"]
+[node name="ButtonPassiveCurrency" parent="MarginContainerButtons/HBoxContainerButtons" instance=ExtResource("5_og45k")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 1
+
+[node name="ButtonStats" type="Button" parent="MarginContainerButtons/HBoxContainerButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "STATS"
 
-[node name="Button0" type="Button" parent="MarginContainerButtons/HBoxContainerButtons"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "COLLECT"
-
-[node name="Button1" type="Button" parent="MarginContainerButtons/HBoxContainerButtons"]
+[node name="ButtonUpgrade" type="Button" parent="MarginContainerButtons/HBoxContainerButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "UPGRADE"
 
-[node name="Button2" type="Button" parent="MarginContainerButtons/HBoxContainerButtons"]
+[node name="ButtonDeck" type="Button" parent="MarginContainerButtons/HBoxContainerButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = ">>>"
+text = "DECK"
 
-[node name="Button4" type="Button" parent="MarginContainerButtons/HBoxContainerButtons"]
+[node name="ButtonBet" type="Button" parent="MarginContainerButtons/HBoxContainerButtons"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "BET 10"

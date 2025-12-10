@@ -25,7 +25,8 @@ func _ready() -> void:
 	held_labels = [%LabelHeld0, %LabelHeld1, %LabelHeld2, %LabelHeld3, %LabelHeld4]
 	
 	ui.deal_draw_pressed.connect(_on_ui_deal_draw_pressed)
-	ui.currency_target_reached.connect(_on_ui_currency_target_reached)
+	ui.passive_currency_pressed.connect(_on_ui_passive_currency_pressed)
+	ui.animations_finished.connect(_on_ui_animations_finished)
 	for card : Card in hand:
 		card.selected.connect(_on_card_selected)
 	
@@ -38,6 +39,7 @@ func _set_data(value : LevelData) -> void:
 	num_draws_remaining = data.num_draws
 	ui.set_pay_table_data(data.pay_table_data)
 	ui.set_initial_currency(currency)
+	ui.set_passive_currency_payout(data.passive_currency)
 	for currency_tier : int in currency.keys():
 		ui.currency_list.update_currency(currency_tier, currency[currency_tier])
 	return
@@ -89,9 +91,12 @@ func resolve_hand() -> void:
 	for card : Card in hand:
 		hand_data.append(card.data)
 	var hand_rank : Hand.Rank = Hand.rank(hand_data)
-	for currency_tier : int in currency.keys():
-		currency[currency_tier] += data.pay_table_data.get_payout(hand_rank, currency_tier)
+	var payout : Dictionary[int, int] = data.pay_table_data.get_payout(hand_rank)
+	if(payout.keys().size() > 0):
+		for currency_tier : int in currency.keys():
+			currency[currency_tier] += payout[currency_tier]
 	ui.pay_table.highlight(hand_rank)
+	ui.payout_indicator.payout = payout
 	ui.currency_target = currency
 	return
 
@@ -113,7 +118,13 @@ func _on_ui_deal_draw_pressed() -> void:
 			print("error: invalid level state - ", state)
 	return
 
-func _on_ui_currency_target_reached() -> void:
+func _on_ui_passive_currency_pressed() -> void:
+	for currency_tier : int in currency.keys():
+		currency[currency_tier] += data.passive_currency[currency_tier]
+	ui.currency_target = currency
+	return
+
+func _on_ui_animations_finished() -> void:
 	state = State.WAITING_TO_DEAL
 	return
 

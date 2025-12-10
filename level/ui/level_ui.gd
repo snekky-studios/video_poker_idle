@@ -2,7 +2,8 @@ class_name LevelUI
 extends Control
 
 signal deal_draw_pressed
-signal currency_target_reached
+signal passive_currency_pressed
+signal animations_finished
 
 enum State
 {
@@ -20,22 +21,29 @@ var currency_current : Dictionary[int, int] = {}
 var currency_target : Dictionary[int, int] = {} : set = _set_currency_target
 var currency_increment_progress : Dictionary[int, float] = {}
 var is_incrementing_currency : Dictionary[int, bool] = {}
-var are_all_currencies_incremented : bool = true
+var is_indicating_payout : bool = false
+var are_all_animations_finished : bool = true
 
 var pay_table : PayTable = null
 var currency_list : CurrencyList = null
+var payout_indicator : PayoutIndicator = null
+var button_passive_currency : ButtonPassiveCurrency = null
 var button_deal_draw : Button = null
 
 func _ready() -> void:
 	pay_table = %PayTable
 	currency_list = %CurrencyList
+	payout_indicator = %PayoutIndicator
+	button_passive_currency = %ButtonPassiveCurrency
 	button_deal_draw = %ButtonDealDraw
+	
+	button_passive_currency.pressed.connect(_on_button_passive_currency_pressed)
 	return
 
 func _process(delta: float) -> void:
-	if(are_all_currencies_incremented):
+	if(are_all_animations_finished):
 		return
-	are_all_currencies_incremented = true
+	are_all_animations_finished = true
 	for currency_tier : int in is_incrementing_currency.keys():
 		if(not is_incrementing_currency[currency_tier]):
 			continue
@@ -49,9 +57,9 @@ func _process(delta: float) -> void:
 			if(currency_current[currency_tier] >= currency_target[currency_tier]):
 				is_incrementing_currency[currency_tier] = false
 	for currency_tier : int in is_incrementing_currency.keys():
-		are_all_currencies_incremented = are_all_currencies_incremented and (not is_incrementing_currency[currency_tier])
-	if(are_all_currencies_incremented):
-		currency_target_reached.emit()
+		are_all_animations_finished = are_all_animations_finished and (not is_incrementing_currency[currency_tier])
+	if(are_all_animations_finished):
+		animations_finished.emit()
 	return
 
 func _set_state(value : State) -> void:
@@ -67,11 +75,11 @@ func _set_state(value : State) -> void:
 
 func _set_currency_target(value : Dictionary[int, int]) -> void:
 	currency_target = value
-	are_all_currencies_incremented = true
+	are_all_animations_finished = true
 	for currency_tier : int in currency_current.keys():
 		if(currency_current[currency_tier] < currency_target[currency_tier]):
 			is_incrementing_currency[currency_tier] = true
-			are_all_currencies_incremented = false
+			are_all_animations_finished = false
 			var currency_delta : int = currency_target[currency_tier] - currency_current[currency_tier]
 			if(currency_delta < 5):
 				currency_increment_speed[currency_tier] = CURRENCY_INCREMENT_SPEED_SLOW
@@ -82,10 +90,8 @@ func _set_currency_target(value : Dictionary[int, int]) -> void:
 		else:
 			currency_current[currency_tier] = currency_target[currency_tier]
 			currency_list.update_currency(currency_tier, currency_current[currency_tier])
-	print(currency_target)
-	print(is_incrementing_currency)
-	if(are_all_currencies_incremented):
-		currency_target_reached.emit()
+	if(are_all_animations_finished):
+		animations_finished.emit()
 	return
 
 func set_initial_currency(value : Dictionary[int, int]) -> void:
@@ -102,10 +108,14 @@ func set_pay_table_data(value : PayTableData) -> void:
 	pay_table.update()
 	return
 
-func set_payout_text(payout : Dictionary[int, int]) -> void:
-	
+func set_passive_currency_payout(value : Dictionary[int, int]) -> void:
+	button_passive_currency.payout = value
 	return
 
 func _on_button_deal_draw_pressed() -> void:
 	deal_draw_pressed.emit()
+	return
+
+func _on_button_passive_currency_pressed() -> void:
+	passive_currency_pressed.emit()
 	return

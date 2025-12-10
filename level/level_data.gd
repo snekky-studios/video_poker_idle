@@ -4,7 +4,7 @@ extends Resource
 @export var deck : Deck = null
 @export var pay_table_data : PayTableData = null
 @export var starting_currency : Dictionary[int, int] = {
-	0 : 100,
+	0 : 10,
 	1 : 0,
 	2 : 0,
 	3 : 0
@@ -15,7 +15,15 @@ extends Resource
 	2 : 0,
 	3 : 0
 }
+@export var passive_currency : Dictionary[int, int] = {
+	0 : 1,
+	1 : 0,
+	2 : 0,
+	3 : 0
+}
 @export var num_draws : int = 1
+
+
 
 func _to_string() -> String:
 	var output : String = ""

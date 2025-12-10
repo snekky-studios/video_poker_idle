@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgli31apasch"]
+
+[ext_resource type="Script" uid="uid://dr4463crq2ng4" path="res://level/ui/upgrade_menu/button_buy_upgrade/button_buy_upgrade.gd" id="1_bdrns"]
+[ext_resource type="PackedScene" uid="uid://chm4h37bh3cnv" path="res://level/ui/upgrade_menu/cost_indicator/cost_indicator.tscn" id="2_onw6u"]
+
+[node name="ButtonBuyUpgrade" type="Button"]
+custom_minimum_size = Vector2(96, 32)
+offset_right = 48.0
+offset_bottom = 20.0
+text = "UPGRADE"
+script = ExtResource("1_bdrns")
+
+[node name="CostIndicator" parent="." instance=ExtResource("2_onw6u")]
+unique_name_in_owner = true
+visible = false
+offset_left = 49.0
+offset_right = 49.0
+
+[connection signal="focus_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="focus_exited" from="." to="." method="_on_focus_exited"]
+[connection signal="mouse_entered" from="." to="." method="_on_focus_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_focus_exited"]

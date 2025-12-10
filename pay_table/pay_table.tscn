@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cut4p2vuxvwhs"]
+[gd_scene load_steps=7 format=3 uid="uid://cut4p2vuxvwhs"]
 
 [ext_resource type="Script" uid="uid://cykuqspbuckhu" path="res://pay_table/pay_table.gd" id="1_owl11"]
+[ext_resource type="Texture2D" uid="uid://rc4s4iqse1df" path="res://currency/assets/currency_0.png" id="2_3e8un"]
+[ext_resource type="Texture2D" uid="uid://dt0l7jklpoqpl" path="res://currency/assets/currency_1.png" id="3_0mbvq"]
+[ext_resource type="Texture2D" uid="uid://cfmqifqjlh7b1" path="res://currency/assets/currency_2.png" id="4_51beh"]
+[ext_resource type="Texture2D" uid="uid://7dsncrej6dr7" path="res://currency/assets/currency_3.png" id="5_8t2wl"]
+[ext_resource type="PackedScene" uid="uid://bgli31apasch" path="res://level/ui/upgrade_menu/button_buy_upgrade/button_buy_upgrade.tscn" id="6_8t2wl"]
 
 [node name="PayTable" type="Control"]
 layout_mode = 3
@@ -29,7 +34,13 @@ unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme_override_constants/separation = 1
+theme_override_constants/separation = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("2_3e8un")
+stretch_mode = 3
 
 [node name="Label0" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerHands/VBoxContainerHands"]
 layout_mode = 2
@@ -83,79 +94,414 @@ text = "HAND 12"
 layout_mode = 2
 text = "HAND 13"
 
-[node name="PanelContainerPayouts" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(56, 0)
+[node name="PanelContainerPayouts0" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(44, 0)
 layout_mode = 2
 
-[node name="VBoxContainerPayouts" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainerPayouts"]
+[node name="VBoxContainerPayouts0" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
-theme_override_constants/separation = 1
+theme_override_constants/separation = 4
 alignment = 2
 
-[node name="Label0" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
-text = "1000000000000"
+texture = ExtResource("2_3e8un")
+stretch_mode = 3
+
+[node name="Label0" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
+layout_mode = 2
+text = "123456"
 horizontal_alignment = 2
 
-[node name="Label1" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label1" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
-text = "100000000000"
+text = "123456"
 horizontal_alignment = 2
 
-[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
-text = "10000000000"
+text = "123456"
 horizontal_alignment = 2
 
-[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
-text = "1000000000"
+text = "123456"
 horizontal_alignment = 2
 
-[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
-text = "100000000"
+text = "123456"
 horizontal_alignment = 2
 
-[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
-text = "10000000"
+text = "123456"
 horizontal_alignment = 2
 
-[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
-text = "1000000"
+text = "123456"
 horizontal_alignment = 2
 
-[node name="Label7" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label7" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
 text = "100000"
 horizontal_alignment = 2
 
-[node name="Label8" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label8" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
 text = "10000"
 horizontal_alignment = 2
 
-[node name="Label9" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label9" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
 text = "1000"
 horizontal_alignment = 2
 
-[node name="Label10" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label10" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
 text = "100"
 horizontal_alignment = 2
 
-[node name="Label11" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label11" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
 text = "10"
 horizontal_alignment = 2
 
-[node name="Label12" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts/VBoxContainerPayouts"]
+[node name="Label12" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts0/VBoxContainerPayouts0"]
 layout_mode = 2
 text = "1"
 horizontal_alignment = 2
+
+[node name="PanelContainerPayouts1" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="VBoxContainerPayouts1" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+texture = ExtResource("3_0mbvq")
+stretch_mode = 3
+
+[node name="Label0" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label1" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label7" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "100000"
+horizontal_alignment = 2
+
+[node name="Label8" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "10000"
+horizontal_alignment = 2
+
+[node name="Label9" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "1000"
+horizontal_alignment = 2
+
+[node name="Label10" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "100"
+horizontal_alignment = 2
+
+[node name="Label11" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "10"
+horizontal_alignment = 2
+
+[node name="Label12" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts1/VBoxContainerPayouts1"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 2
+
+[node name="PanelContainerPayouts2" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="VBoxContainerPayouts2" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+texture = ExtResource("4_51beh")
+stretch_mode = 3
+
+[node name="Label0" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label1" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label7" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "100000"
+horizontal_alignment = 2
+
+[node name="Label8" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "10000"
+horizontal_alignment = 2
+
+[node name="Label9" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "1000"
+horizontal_alignment = 2
+
+[node name="Label10" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "100"
+horizontal_alignment = 2
+
+[node name="Label11" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "10"
+horizontal_alignment = 2
+
+[node name="Label12" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts2/VBoxContainerPayouts2"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 2
+
+[node name="PanelContainerPayouts3" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="VBoxContainerPayouts3" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 4
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+texture = ExtResource("5_8t2wl")
+stretch_mode = 3
+
+[node name="Label0" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label1" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label3" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label4" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label5" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label6" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "123456"
+horizontal_alignment = 2
+
+[node name="Label7" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "100000"
+horizontal_alignment = 2
+
+[node name="Label8" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "10000"
+horizontal_alignment = 2
+
+[node name="Label9" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "1000"
+horizontal_alignment = 2
+
+[node name="Label10" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "100"
+horizontal_alignment = 2
+
+[node name="Label11" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "10"
+horizontal_alignment = 2
+
+[node name="Label12" type="Label" parent="MarginContainer/HBoxContainer/PanelContainerPayouts3/VBoxContainerPayouts3"]
+layout_mode = 2
+text = "1"
+horizontal_alignment = 2
+
+[node name="PanelContainerBuyUpgrade" type="PanelContainer" parent="MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(44, 0)
+layout_mode = 2
+
+[node name="VBoxContainerBuyUpgrade" type="VBoxContainer" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme_override_constants/separation = 2
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("2_3e8un")
+stretch_mode = 3
+
+[node name="BuyUpgradeButton0" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "BUY"
+
+[node name="BuyUpgradeButton1" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton2" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton3" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton4" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton5" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton6" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton7" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton8" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton9" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton10" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton11" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+
+[node name="BuyUpgradeButton12" parent="MarginContainer/HBoxContainer/PanelContainerBuyUpgrade/VBoxContainerBuyUpgrade" instance=ExtResource("6_8t2wl")]
+custom_minimum_size = Vector2(44, 9)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16

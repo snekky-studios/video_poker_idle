@@ -1,0 +1,143 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1tjf4slh73pc"]
+
+[ext_resource type="Script" uid="uid://bbvp6skihs2pa" path="res://level/ui/upgrade_menu/upgrade_menu.gd" id="1_8mtb8"]
+[ext_resource type="PackedScene" uid="uid://bgli31apasch" path="res://level/ui/upgrade_menu/button_buy_upgrade/button_buy_upgrade.tscn" id="2_yxelw"]
+
+[node name="UpgradeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8mtb8")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainerStatistics" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerStatistics"]
+custom_minimum_size = Vector2(44, 32)
+layout_mode = 2
+
+[node name="LabelStatisticsLevel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerStatistics/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="LabelStatistics" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerStatistics"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+theme_override_font_sizes/font_size = 32
+text = "STATISTICS"
+
+[node name="BuyUpgradeButtonStatistics" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerStatistics" instance=ExtResource("2_yxelw")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BUY"
+
+[node name="HBoxContainerPassiveIncome" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerPassiveIncome"]
+custom_minimum_size = Vector2(44, 32)
+layout_mode = 2
+
+[node name="LabelPassiveIncomeLevel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerPassiveIncome/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="LabelPassiveIncome" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerPassiveIncome"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+theme_override_font_sizes/font_size = 32
+text = "PASSIVE INCOME"
+
+[node name="BuyUpgradeButtonPassiveIncome" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerPassiveIncome" instance=ExtResource("2_yxelw")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "BUY"
+
+[node name="HBoxContainerDraws" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerDraws"]
+custom_minimum_size = Vector2(44, 32)
+layout_mode = 2
+
+[node name="LabelDrawsLevel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerDraws/PanelContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "0"
+horizontal_alignment = 1
+
+[node name="LabelDraws" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerDraws"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+theme_override_font_sizes/font_size = 32
+text = "DRAWS"
+
+[node name="BuyUpgradeButtonDraws" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerDraws" instance=ExtResource("2_yxelw")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainerPayTable" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelPayTable" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerPayTable"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+theme_override_font_sizes/font_size = 32
+text = "PAY TABLE"
+
+[node name="ButtonPaytableView" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerPayTable"]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+text = "VIEW"
+
+[node name="HBoxContainerDeck" type="HBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LabelDeck" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerDeck"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 4.0
+theme_override_font_sizes/font_size = 32
+text = "DECK"
+
+[node name="ButtonDeckView" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerDeck"]
+custom_minimum_size = Vector2(96, 32)
+layout_mode = 2
+text = "VIEW"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerStatistics/BuyUpgradeButtonStatistics" to="." method="_on_buy_upgrade_button_statistics_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerPassiveIncome/BuyUpgradeButtonPassiveIncome" to="." method="_on_buy_upgrade_button_passive_income_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerDraws/BuyUpgradeButtonDraws" to="." method="_on_buy_upgrade_button_draws_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerPayTable/ButtonPaytableView" to="." method="_on_button_paytable_view_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/HBoxContainerDeck/ButtonDeckView" to="." method="_on_button_deck_view_pressed"]
